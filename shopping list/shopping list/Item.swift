@@ -1,12 +1,12 @@
 //
-//  item.swift
+//  Item.swift
 //  shopping list
 //
-//  Created by Brian Liew on 9/14/21.
+//  Created by Brian Liew on 9/19/21.
 //
 
 import Foundation
 
-struct item {
+struct Item {
     var name: String
 }
