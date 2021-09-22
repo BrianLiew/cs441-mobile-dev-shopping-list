@@ -16,6 +16,7 @@ class item_form_view_controller: UIViewController {
     // variables
     var item: Item?      // '?' cause initially nil, then assigned values after user input
 
+    /*
     // initializers
     init?(coder: NSCoder, item: Item) {
         super.init(coder: coder)
@@ -25,12 +26,18 @@ class item_form_view_controller: UIViewController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    */
     
     // UIViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
         update_view()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     func update_view() {    // updates textfield to display existing item names

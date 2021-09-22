@@ -29,6 +29,11 @@ class item_table_view_controllerTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+        
     // segues
     @IBSegueAction func add_item(_ coder: NSCoder, sender: Any?) -> item_form_view_controller? {
         return item_form_view_controller(coder: coder)
@@ -64,7 +69,7 @@ class item_table_view_controllerTableViewController: UITableViewController {
         let model = all_items[indexPath.row]
         cell.textLabel?.text = model.name
         
-        cell.showsReorderControl = true;
+        cell.showsReorderControl = true
 
         return cell
     }
@@ -84,24 +89,21 @@ class item_table_view_controllerTableViewController: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            all_items.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "edit_item", sender: self)
+        
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
