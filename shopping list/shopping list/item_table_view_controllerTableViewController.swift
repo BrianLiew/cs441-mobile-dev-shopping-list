@@ -16,7 +16,7 @@ class item_table_view_controllerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        navigationItem.leftBarButtonItem = editButtonItem
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -63,10 +63,19 @@ class item_table_view_controllerTableViewController: UITableViewController {
 
         let model = all_items[indexPath.row]
         cell.textLabel?.text = model.name
+        
+        cell.showsReorderControl = true;
 
         return cell
     }
-
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let moved_item = all_items.remove(at: sourceIndexPath.row)
+        all_items.insert(moved_item, at: destinationIndexPath.row)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
