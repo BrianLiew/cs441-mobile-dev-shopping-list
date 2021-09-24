@@ -9,11 +9,11 @@ import UIKit
 
 class item_form_view_controller: UIViewController {
     
-    // outlets
+    // MARK: - outlets
     @IBOutlet var form_textfield: UITextField!
     @IBOutlet var save_button: UIButton!
     
-    // variables
+    // MARK: - variables
     var item: Item?      // '?' cause initially nil, then assigned values after user input
 
     /*
@@ -28,15 +28,15 @@ class item_form_view_controller: UIViewController {
     }
     */
     
-    // UIViewController methods
+    // MARK: - UIViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        update_view()
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        update_view()
         
     }
     
@@ -46,7 +46,7 @@ class item_form_view_controller: UIViewController {
         }
     }
 
-    // actions
+    // MARK: - actions
     @IBAction func save_button_pressed(_ sender: Any) {
         guard let an_item_name = form_textfield.text
         else { return }

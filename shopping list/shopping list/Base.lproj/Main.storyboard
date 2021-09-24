@@ -8,24 +8,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--SHOPPING LIST-->
+        <!--item table view controller-->
         <scene sceneID="ojU-pK-cGG">
             <objects>
-                <tableViewController id="Kuu-Jg-0Rk" customClass="item_table_view_controllerTableViewController" customModule="shopping_list" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="item table view controller" interfaceStyle="light" id="Kuu-Jg-0Rk" customClass="item_table_view_controllerTableViewController" customModule="shopping_list" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Spl-3f-gpY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="item_cell" textLabel="Wuq-6B-hzZ" style="IBUITableViewCellStyleDefault" id="ryc-Sz-gAS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="item_cell" textLabel="Wuq-6B-hzZ" style="IBUITableViewCellStyleDefault" id="ryc-Sz-gAS">
                                 <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ryc-Sz-gAS" id="V8l-5I-c8H">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="344.5" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wuq-6B-hzZ">
-                                            <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="316.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -34,9 +34,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.99953407049999998" green="0.95442708330000003" blue="0.83102147110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="edit_item" id="GSd-19-7LH"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,16 +42,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="SHOPPING LIST" id="yD2-fT-1vE">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="cBo-1q-NxX"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1qJ-iq-vEu">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="add_item" destinationCreationSelector="add_item:sender:" id="7k2-DO-eNU"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="add_item" id="7k2-DO-eNU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="edit_item" id="FRC-K7-f7z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xde-Wg-cxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751" y="94"/>
+            <point key="canvasLocation" x="-728" y="94"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIt-ZG-ecZ">
@@ -77,16 +78,16 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="item_form_view_controller" customModule="shopping_list" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter item name..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RLx-01-VbL">
-                                <rect key="frame" x="50" y="100" width="314" height="34"/>
+                                <rect key="frame" x="50" y="188" width="314" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59Y-f9-1se">
-                                <rect key="frame" x="187" y="250" width="40" height="30"/>
+                                <rect key="frame" x="187" y="338" width="40" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="SAVE"/>
                                 <connections>
@@ -102,7 +103,6 @@
                             <constraint firstItem="RLx-01-VbL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="gDU-4n-W7E"/>
                             <constraint firstItem="59Y-f9-1se" firstAttribute="top" secondItem="RLx-01-VbL" secondAttribute="top" constant="150" id="oOg-Il-9LW"/>
                             <constraint firstItem="RLx-01-VbL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="oog-wk-7ch"/>
-                            <constraint firstItem="RLx-01-VbL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rwT-3c-YV6"/>
                             <constraint firstItem="59Y-f9-1se" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tgD-9n-Jyf"/>
                         </constraints>
                     </view>
@@ -120,7 +120,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GSd-19-7LH"/>
+        <segue reference="FRC-K7-f7z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGray5Color">

@@ -9,10 +9,10 @@ import UIKit
 
 class item_table_view_controllerTableViewController: UITableViewController {
 
-    // variables
+    // MARK: - variables
     var all_items: [Item] = []
     
-    // UITableViewController methods
+    // MARK: - UITableViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +34,7 @@ class item_table_view_controllerTableViewController: UITableViewController {
         
     }
         
-    // segues
+    // MARK: - segues
     @IBSegueAction func add_item(_ coder: NSCoder, sender: Any?) -> item_form_view_controller? {
         return item_form_view_controller(coder: coder)
     }
@@ -50,7 +50,6 @@ class item_table_view_controllerTableViewController: UITableViewController {
         } else {
             all_items.append(form_item)                     // if item hasn't existed
         }
-        
     }
 
     // MARK: - Table view data source
@@ -102,7 +101,6 @@ class item_table_view_controllerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "edit_item", sender: self)
-        
     }
 
     /*
